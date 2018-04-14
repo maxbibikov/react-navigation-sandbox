@@ -4,7 +4,6 @@ import { StackNavigator } from 'react-navigation';
 
 // Components
 import AppMainTabNavigator from './AppMainTabNavigator';
-import {RootNavigator} from '../../../navigation/RootNavigation';
 import RootNavigation from '../../../navigation/MainTabNavigator';
 
 const AppRootStackNavigator = StackNavigator(

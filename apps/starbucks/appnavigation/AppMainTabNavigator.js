@@ -7,13 +7,17 @@ import { TabNavigator, TabBarBottom } from 'react-navigation';
 import { Ionicons } from '@expo/vector-icons';
 
 // Screens
-import AppHomeScreen from '../appscreens/AppHomeScreen';
+import AppOrderScreen from '../appscreens/AppOrderScreen';
+import AppCartScreen from '../appscreens/AppCartScreen';
 
 export default TabNavigator(
     {
-        Home: {
-            screen: AppHomeScreen,
-        }
+        Order: {
+            screen: AppOrderScreen,
+        },
+        Cart: {
+            screen: AppCartScreen,
+        },
     },
     {
         navigationOptions: ({ navigation }) => ({
@@ -21,12 +25,18 @@ export default TabNavigator(
                 const { routeName } = navigation.state;
                 let iconName;
                 switch (routeName) {
-                    case 'Home':
+                    case 'Order':
                         iconName = 
                             Platform.OS === 'ios'
-                                ? `ios-home${ focused ? '' : '-outline'}`
-                                : 'md-home';
+                                ? `ios-add${ focused ? '' : '-outline'}`
+                                : 'md-add';
                         break;
+                    case 'Cart':
+                        iconName = 
+                            Platform.OS === 'ios'
+                                ? `ios-cart${ focused ? '' : '-outline'}`
+                                : 'md-cart';
+                    break;
                 }
                 return (
                     <Ionicons 

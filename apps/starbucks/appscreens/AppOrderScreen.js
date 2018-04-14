@@ -3,26 +3,23 @@ import React, { Component } from 'react';
 import {
     View,
     StyleSheet,
-    TextInput,
+    Text,
     Button
 } from 'react-native';
 
-export default class FavoritesScreen extends Component {
+export default class AppOrderScreen extends Component {
     static navigationOptions = {
         header: null,
       };
 
-      state = {
-          searchText: ''
-      }
-
     render() {
         return (
             <View style = {styles.container}>
+                <Text> Welcome To Starbucks </Text>
                 <Button 
-                    onPress = { () => this.props.navigation.navigate('Starbucks') }
-                    title = 'STARBUCKS'
-                    color = 'green'
+                    onPress = {() => this.props.navigation.goBack()}
+                    title = 'Go To Main App'
+                    color = 'lightblue'
                 />
             </View>
         )
@@ -36,11 +33,5 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#fff'
-    },
-    searchInput: {
-        height: 40,
-        width: 100,
-        textAlign: 'center'
-        
     }
 })

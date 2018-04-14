@@ -4,12 +4,16 @@ import { StackNavigator } from 'react-navigation';
 
 // Components
 import MainTabNavigator from './MainTabNavigator';
+import Starbucks from '../apps/starbucks'
 
 const RootStackNavigator = StackNavigator(
     {
         Main: {
             screen: MainTabNavigator
         },
+        Starbucks: {
+            screen: Starbucks
+        }
         
     },
     {

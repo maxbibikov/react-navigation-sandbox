@@ -45,8 +45,8 @@ export default TabNavigator(
                     case 'Favorites':
                         iconName = 
                             Platform.OS === 'ios'
-                                ? `ios-search${ focused ? '' : '-outline'}`
-                                : 'md-search'
+                                ? `ios-heart${ focused ? '' : '-outline'}`
+                                : 'md-heart'
                 }
                 return (
                     <Ionicons 

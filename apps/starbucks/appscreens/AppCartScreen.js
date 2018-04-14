@@ -7,7 +7,7 @@ import {
     Button
 } from 'react-native';
 
-export default class HomeScreen extends Component {
+export default class AppCartScreen extends Component {
     static navigationOptions = {
         header: null,
       };
@@ -15,12 +15,7 @@ export default class HomeScreen extends Component {
     render() {
         return (
             <View style = {styles.container}>
-                <Text> Welcome To Starbucks </Text>
-                <Button 
-                    onPress = {() => this.props.navigation.navigate('Main')}
-                    title = 'Go To Main App'
-                    color = 'lightblue'
-                />
+                <Text> Please check your order </Text>
             </View>
         )
     }
