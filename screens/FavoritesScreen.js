@@ -26,7 +26,7 @@ export default class HomeScreen extends Component {
                     placeholder = 'search'
                 />
                 <Button 
-                    onPress = { () => {} }
+                    onPress = { () => this.props.navigation.navigate('Starbucks') }
                     title = 'Go'
                     color = 'purple'
                 />
