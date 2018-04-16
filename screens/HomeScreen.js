@@ -6,6 +6,9 @@ import {
     Text
 } from 'react-native';
 
+// Components
+import Login from '../components/Login';
+
 export default class HomeScreen extends Component {
     static navigationOptions = {
         header: null,
@@ -15,6 +18,7 @@ export default class HomeScreen extends Component {
         return (
             <View style = {styles.container}>
                 <Text> Home </Text>
+                <Login />
             </View>
         )
     }

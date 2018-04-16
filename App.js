@@ -13,7 +13,6 @@ export default class App extends React.Component {
     isLoadingComplete: false,
   };
 
-
   render() {
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
       return (
@@ -49,8 +48,6 @@ export default class App extends React.Component {
     this.setState({ isLoadingComplete: true });
   };
 }
-
-
 
 const styles = StyleSheet.create({
   container: {
