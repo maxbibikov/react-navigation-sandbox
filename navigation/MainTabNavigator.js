@@ -1,7 +1,7 @@
 // Core
 import React from 'react';
 import { Platform } from 'react-native';
-import { TabNavigator, TabBarBottom } from 'react-navigation';
+import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 
 // Instruments
 import { Ionicons } from '@expo/vector-icons';
@@ -9,20 +9,19 @@ import { Ionicons } from '@expo/vector-icons';
 // Screens
 import HomeScreen from '../screens/HomeScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import FavoritesScreen from '../screens/FavoritesScreen'
+import FavoritesScreen from '../screens/FavoritesScreen';
 
-export default TabNavigator(
+export default createMaterialBottomTabNavigator(
     {
         Home: {
             screen: HomeScreen,
         },
         Favorites: {
-            screen: FavoritesScreen
+            screen: FavoritesScreen,
         },
         Settings: {
-            screen: SettingsScreen
+            screen: SettingsScreen,
         },
-
     },
     {
         navigationOptions: ({ navigation }) => ({
@@ -31,36 +30,33 @@ export default TabNavigator(
                 let iconName;
                 switch (routeName) {
                     case 'Home':
-                        iconName = 
+                        iconName =
                             Platform.OS === 'ios'
-                                ? `ios-home${ focused ? '' : '-outline'}`
+                                ? `ios-home${focused ? '' : '-outline'}`
                                 : 'md-home';
                         break;
                     case 'Settings':
-                        iconName = 
+                        iconName =
                             Platform.OS === 'ios'
-                                ? `ios-settings${ focused ? '' : '-outline'}`
+                                ? `ios-settings${focused ? '' : '-outline'}`
                                 : 'md-settings';
                         break;
                     case 'Favorites':
-                        iconName = 
+                        iconName =
                             Platform.OS === 'ios'
-                                ? `ios-heart${ focused ? '' : '-outline'}`
-                                : 'md-heart'
+                                ? `ios-heart${focused ? '' : '-outline'}`
+                                : 'md-heart';
                 }
                 return (
-                    <Ionicons 
-                        name = { iconName }
-                        size = { 28 }
-                        style = {{ marginBottom: -3, width: 25 }}
-                        color= { focused ? '#2f95dc' :'#ccc' }
+                    <Ionicons
+                        name={iconName}
+                        size={26}
+                        color={focused ? '#2f95dc' : '#ccc'}
                     />
                 );
-            }
+            },
         }),
-        tabBarComponent: TabBarBottom,
-        tabBarPosition: 'bottom',
-        animationEnabled: false,
-        swipeEnabled: true
+        animationEnabled: true,
+        swipeEnabled: true,
     }
-)
+);

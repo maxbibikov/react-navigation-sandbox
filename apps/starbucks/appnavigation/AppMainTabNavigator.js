@@ -1,7 +1,7 @@
 // Core
 import React from 'react';
 import { Platform } from 'react-native';
-import { TabNavigator, TabBarBottom } from 'react-navigation';
+import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 
 // Instruments
 import { Ionicons } from '@expo/vector-icons';
@@ -10,7 +10,7 @@ import { Ionicons } from '@expo/vector-icons';
 import AppOrderScreen from '../appscreens/AppOrderScreen';
 import AppCartScreen from '../appscreens/AppCartScreen';
 
-export default TabNavigator(
+export default createMaterialBottomTabNavigator(
     {
         Order: {
             screen: AppOrderScreen,
@@ -26,31 +26,29 @@ export default TabNavigator(
                 let iconName;
                 switch (routeName) {
                     case 'Order':
-                        iconName = 
+                        iconName =
                             Platform.OS === 'ios'
-                                ? `ios-add${ focused ? '' : '-outline'}`
+                                ? `ios-add${focused ? '' : '-outline'}`
                                 : 'md-add';
                         break;
                     case 'Cart':
-                        iconName = 
+                        iconName =
                             Platform.OS === 'ios'
-                                ? `ios-cart${ focused ? '' : '-outline'}`
+                                ? `ios-cart${focused ? '' : '-outline'}`
                                 : 'md-cart';
-                    break;
+                        break;
                 }
                 return (
-                    <Ionicons 
-                        name = { iconName }
-                        size = { 28 }
-                        style = {{ marginBottom: -3, width: 25 }}
-                        color= { focused ? '#2f95dc' :'#ccc' }
+                    <Ionicons
+                        name={iconName}
+                        size={28}
+                        style={{ marginBottom: -3, width: 25 }}
+                        color={focused ? '#2f95dc' : '#ccc'}
                     />
                 );
-            }
+            },
         }),
-        tabBarComponent: TabBarBottom,
-        tabBarPosition: 'bottom',
-        animationEnabled: false,
-        swipeEnabled: true
+        animationEnabled: true,
+        swipeEnabled: true,
     }
-)
+);
